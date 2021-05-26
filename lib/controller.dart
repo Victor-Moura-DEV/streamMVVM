@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'home_model.dart';
 
-class ControllerHome {
+class HomeViewModel {
   HomeModel _model = HomeModel();
 
   Future<List<int>> get lista => _model.lista;

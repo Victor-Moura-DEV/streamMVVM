@@ -7,7 +7,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final controller = ControllerHome();
+  HomeViewModel viewModel = HomeViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: Center(
                 child: StreamBuilder<List<int>>(
-                  stream: controller.streamLista.stream,
+                  stream: viewModel.streamLista.stream,
                   builder: (context, snapshot) {
                     if (snapshot.connectionState != ConnectionState.active) {
                       return CircularProgressIndicator();
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
               child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    controller.loadLista();
+                    viewModel.loadLista();
                   });
                 },
                 child: Text('Load'),
